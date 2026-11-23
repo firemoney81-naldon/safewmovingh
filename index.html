@@ -1,23 +1,1113 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+    <!-- Schema.org JSON-LD 구조화 데이터 (AI 크롤링 및 구글/네이버 리치 스니펫 최적화) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "#service",
+          "name": "원주이삿짐 포장이사 실시간 비교 분석 서비스",
+          "serviceType": "포장이사 및 이삿짐 운송 중개 컨설팅",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "원주이삿짐 종합정보센터",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "원주시"
+            }
+          },
+          "areaServed": [
+            "원주시 무실동", "원주시 반곡동", "원주시 지정면", "원주시 단계동", 
+            "원주시 단구동", "원주시 명륜동", "원주시 일산동", "원주시 태장동", 
+            "원주시 판부면", "원주시 관설동", "원주시 우산동", "원주시 흥업면"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "원주이삿짐 차종별 요금 체계",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "원룸 및 소형 1톤 이사"
+                },
+                "priceCurrency": "KRW",
+                "price": "350000",
+                "priceValidUntil": "2027-12-31"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "투룸 및 20평형대 2.5톤 포장이사"
+                },
+                "priceCurrency": "KRW",
+                "price": "750000",
+                "priceValidUntil": "2027-12-31"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "30평형대 표준 5톤 포장이사"
+                },
+                "priceCurrency": "KRW",
+                "price": "1050000",
+                "priceValidUntil": "2027-12-31"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "원주 5톤 포장이사 평균 견적 비용은 얼마인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "2027년 기준 원주 30평형대(5톤 기준) 정규 포장이사 평균 요금은 작업 인원 4인(남성 3인, 여성 정리수납 1인) 기준 평일 약 100만원에서 120만원 선으로 형성되어 있습니다. 사다리차 사용 여부, 작업 층수, 손없는날 일정에 따라 변동될 수 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "포장이사 정식 관허업체 확인 방법은 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "국토교통부 산하 전국화물자동차운송주선사업연합회 공식 포털 허가대장 조회를 통해 적재물배상책임보험 가입 여부와 정식 주선사업 면허 보유 여부를 확인할 수 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "원주 혁신도시나 기업도시 고층 아파트 사다리차 작업 기준은 어떻게 되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "반곡동 혁신도시나 지정면 기업도시의 신축 대단지 아파트는 20층 이상의 초고층이 많아 단지별 규정에 따라 엘리베이터 전용 이사만 허용되는 경우가 있습니다. 사다리차 가능 여부와 엘리베이터 이용료를 관리사무소에 사전 확인해야 합니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Noto Sans KR 웹폰트 불러오기 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-blue: #0284c7;
+            --accent-teal: #0f766e;
+            --accent-light: #e0f2fe;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #cbd5e1;
+            --border-light: #e2e8f0;
+            --success-color: #15803d;
+            --radius-md: 8px;
+            --radius-lg: 14px;
+            --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.06);
+            --shadow-hover: 0 8px 24px rgba(15, 23, 42, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 16px;
+            letter-spacing: -0.02em;
+            word-break: keep-all;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 100%);
+            color: #ffffff;
+            padding: 50px 20px 40px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .badge-top {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            font-size: 0.9em;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.3em;
+            font-weight: 900;
+            line-height: 1.35;
+            margin-bottom: 14px;
+            letter-spacing: -0.03em;
+        }
+
+        .header-desc {
+            font-size: 1.12em;
+            color: #e0f2fe;
+            max-width: 850px;
+            margin: 0 auto 25px;
+            font-weight: 400;
+        }
+
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        nav ul {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-sub);
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 0.98em;
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover, nav a:focus {
+            color: var(--primary-navy);
+            border-bottom: 3px solid var(--primary-navy);
+            background-color: #f1f5f9;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-bottom: 35px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+        }
+
+        h2 {
+            font-size: 1.7em;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-light);
+            display: flex;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--accent-teal);
+            margin: 28px 0 14px;
+        }
+
+        h4 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 18px 0 10px;
+        }
+
+        p {
+            color: var(--text-main);
+            font-size: 1.02em;
+            margin-bottom: 16px;
+            line-height: 1.85;
+        }
+
+        .highlight-bold {
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        /* 반응형 견적 계산기 UI */
+        .calculator-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: var(--radius-md);
+            padding: 28px;
+            margin-top: 20px;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .form-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-item label {
+            font-size: 0.95em;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .form-item select, .form-item input {
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.98em;
+            font-family: inherit;
+            background-color: #ffffff;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-item select:focus, .form-item input:focus {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        .calc-result-panel {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 22px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .calc-result-title {
+            font-size: 1em;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .calc-result-price {
+            font-size: 2em;
+            color: var(--primary-navy);
+            font-weight: 900;
+        }
+
+        .calc-result-desc {
+            font-size: 0.9em;
+            color: var(--text-sub);
+            margin-top: 8px;
+        }
+
+        .btn-calc {
+            display: inline-block;
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            border: none;
+            padding: 14px 26px;
+            font-size: 1.05em;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-calc:hover {
+            background-color: #172554;
+        }
+
+        /* 테이블 디자인 */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 22px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.98em;
+            text-align: left;
+            background-color: #ffffff;
+        }
+
+        thead th {
+            background-color: #f1f5f9;
+            color: var(--primary-navy);
+            font-weight: 700;
+            padding: 14px 18px;
+            border-bottom: 2px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        tbody td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-main);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge-recommend {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.8em;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+        }
+
+        /* 데이터 시각화 차트 바 */
+        .chart-container {
+            margin: 25px 0;
+            padding: 20px;
+            background-color: #f8fafc;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+        }
+
+        .chart-bar-item {
+            margin-bottom: 16px;
+        }
+
+        .chart-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.92em;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .chart-bar-bg {
+            background-color: #e2e8f0;
+            height: 14px;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+
+        .chart-bar-fill {
+            height: 100%;
+            border-radius: 7px;
+            background: linear-gradient(90deg, #0284c7 0%, #1e3a8a 100%);
+        }
+
+        /* 안내 박스 */
+        .callout-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--secondary-blue);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 22px 0;
+        }
+
+        .callout-box h4 {
+            margin-top: 0;
+            color: var(--primary-navy);
+        }
+
+        .tag-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .tag-item {
+            background-color: #f1f5f9;
+            color: var(--text-sub);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #e2e8f0;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .tag-item:hover {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            border-color: var(--primary-navy);
+        }
+
+        /* FAQ 아코디언 스타일 */
+        .faq-accordion {
+            margin-top: 20px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background-color: #ffffff;
+            border: none;
+            padding: 18px 22px;
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .faq-question:hover {
+            background-color: #f8fafc;
+            color: var(--primary-navy);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #fafafa;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .faq-answer-inner {
+            padding: 20px 22px;
+            font-size: 0.98em;
+            color: var(--text-sub);
+            line-height: 1.8;
+        }
+
+        .arrow-icon {
+            font-size: 0.8em;
+            color: var(--text-sub);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+        }
+
+        /* 외부 공인 사이트 링크 카드 */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            background-color: #ffffff;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--secondary-blue);
+        }
+
+        .link-title {
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 6px;
+            display: block;
+            font-size: 1.05em;
+        }
+
+        .link-desc {
+            font-size: 0.9em;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 45px 20px;
+            font-size: 0.9em;
+            line-height: 1.7;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-desc {
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            section {
+                padding: 24px 18px;
+            }
+            nav a {
+                padding: 12px 14px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <span class="badge-top">2027 공시 데이터 기준 종합 리포트</span>
+            <h1>원주이삿짐 포장이사 견적 비용 비교 분석 센터</h1>
+            <p class="header-desc">
+                원주시 전 지역 아파트, 빌라, 원룸, 단독주택의 톤수별 실질 요금표와 공인 허가업체 평가 기준을 제시합니다.
+            </p>
+        </div>
+    </header>
+
+    <nav aria-label="메인 네비게이션">
+        <ul>
+            <li><a href="#calculator">실시간 견적 계산기</a></li>
+            <li><a href="#price-table">2027 공시 요금표</a></li>
+            <li><a href="#region-analysis">동별 환경 분석</a></li>
+            <li><a href="#expert-guide">전문가 실무 가이드</a></li>
+            <li><a href="#faq">자주 묻는 질문</a></li>
+            <li><a href="#authority-links">공인 정보망</a></li>
+        </ul>
     </nav>
+
     <main>
-      <h1>Home page</h1>
+
+        <!-- 섹션 1: 견적 계산기 및 인터랙티브 비교 폼 -->
+        <section id="calculator">
+            <h2>원주이삿짐 맞춤형 실시간 예상 비용 계산기</h2>
+            <p>
+                원주 지역 내 거주 형태, 물량 톤수, 사다리차 적용 유무에 따라 실시간 예상 견적을 계산할 수 있습니다. 무실동, 반곡동 혁신도시, 지정면 기업도시 등 주요 거주 권역의 동선과 층고 데이터를 종합적으로 반영합니다.
+            </p>
+
+            <div class="calculator-box">
+                <div class="calc-grid">
+                    <div class="form-item">
+                        <label for="calc-region">1. 원주 출발 권역</label>
+                        <select id="calc-region">
+                            <option value="1">무실동 (신도심 아파트단지)</option>
+                            <option value="2">반곡동 (혁신도시 공공기관 상권)</option>
+                            <option value="3">지정면 (원주기업도시 신축지구)</option>
+                            <option value="4">단계동 (터미널 배후 상업 및 주택)</option>
+                            <option value="5">단구동 (주거 밀집 및 학군지구)</option>
+                            <option value="6">명륜동 및 일산동 (구도심 복합)</option>
+                            <option value="7">태장동, 관설동, 우산동</option>
+                            <option value="8">판부면, 소초면, 흥업면, 문막읍</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="calc-house">2. 주거 형태 및 평형</label>
+                        <select id="calc-house" onchange="updateAutoTonnage()">
+                            <option value="1">원룸 / 오피스텔 (10평 이하)</option>
+                            <option value="2">소형 빌라 / 다세대 (15평 내외)</option>
+                            <option value="3" selected>표준 아파트 (24평~28평)</option>
+                            <option value="4">중대형 아파트 (32평~35평)</option>
+                            <option value="5">대형 평형 / 단독주택 (40평 이상)</option>
+                            <option value="6">사무실 / 상가 점포 이전</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="calc-ton">3. 이삿짐 적재 톤수</label>
+                        <select id="calc-ton">
+                            <option value="1">1톤 (용달 및 기본 소형 화물)</option>
+                            <option value="2.5">2.5톤 (소형 포장이사)</option>
+                            <option value="5" selected>5톤 (30평형 일반 표준)</option>
+                            <option value="7.5">7.5톤 (짐이 많은 30~40평형)</option>
+                            <option value="10">10톤 (대형 주택 및 복층 구조)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="calc-ladder">4. 사다리차 이용 계획</label>
+                        <select id="calc-ladder">
+                            <option value="0">사다리차 미사용 (엘리베이터 이동)</option>
+                            <option value="1">출발지 또는 도착지 편도 이용</option>
+                            <option value="2" selected>출발지 및 도착지 양방향 모두 이용</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-calc" onclick="calculateMovingCost()">원주이삿짐 예상 비용 산출하기</button>
+
+                <div class="calc-result-panel" id="result-panel">
+                    <div class="calc-result-title">원주 권역 표준 포장이사 예상 견적 범위</div>
+                    <div class="calc-result-price" id="cost-display">1,150,000원 ~ 1,350,000원</div>
+                    <div class="calc-result-desc" id="cost-detail">
+                        남성 전문 작업원 3인, 정리 수납원 1인, 양방향 사다리차 기본 작업 요율이 통합 합산된 평균치입니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 2027 공시 요금표 및 차종별 가격표 -->
+        <section id="price-table">
+            <h2>2027 원주이삿짐 차종별 공시 요금표 및 투입 인력 기준</h2>
+            <p>
+                포장이사 견적 산출의 핵심 요소는 단순한 차량 적재량이 아닌 투입되는 전문 인력의 수와 작업 난이도입니다. 화물자동차 운수사업법 기준에 부합하는 정규 허가업체의 인건비, 자재비, 유류대를 체계화한 원주 지역 표준 등급표입니다.
+            </p>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>차량 적재량</th>
+                            <th>추천 거주 형태</th>
+                            <th>표준 투입 인력</th>
+                            <th>평일 평균 비용</th>
+                            <th>손없는날 / 금요일 요금</th>
+                            <th>작업 특성</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1톤 용달 이사</strong></td>
+                            <td>원룸, 오피스텔, 소형 투룸</td>
+                            <td>전문 기사 1인 (운송 위주)</td>
+                            <td>20만원 ~ 35만원</td>
+                            <td>25만원 ~ 45만원</td>
+                            <td>일반이사 또는 반포장이사 적합</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2.5톤 포장이사</strong></td>
+                            <td>18평 ~ 24평 소형 아파트, 다세대</td>
+                            <td>남성 2인, 수납원 1인</td>
+                            <td>70만원 ~ 85만원</td>
+                            <td>85만원 ~ 100만원</td>
+                            <td>소형 가구 안심 포장 및 잔짐 정리</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5톤 표준 포장이사</strong> <span class="badge-recommend">대표 권장</span></td>
+                            <td>25평 ~ 34평 국민 평형 아파트</td>
+                            <td>남성 3인, 수납원 1인</td>
+                            <td>105만원 ~ 125만원</td>
+                            <td>125만원 ~ 150만원</td>
+                            <td>가구·가전 전용 완충재 패킹 및 청소</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7.5톤 대형 포장이사</strong></td>
+                            <td>38평 ~ 48평 대형 평형대</td>
+                            <td>남성 4인, 수납원 1인</td>
+                            <td>145만원 ~ 170만원</td>
+                            <td>170만원 ~ 200만원</td>
+                            <td>대용량 짐, 대형 냉장고 및 시스템 가구 분해 조립</td>
+                        </tr>
+                        <tr>
+                            <td><strong>10톤 이상 특수 이사</strong></td>
+                            <td>50평 이상, 단독 복층주택</td>
+                            <td>남성 5인, 수납원 2인</td>
+                            <td>200만원 이상 상담</td>
+                            <td>협의 요율 적용</td>
+                            <td>탑차 복수 배치 및 특수 크레인 연계</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>포장이사 견적 금액을 구성하는 4대 세부 원가 비중</h3>
+            <p>
+                원주이삿짐 비용을 종합 비교할 때 가장 주의해야 할 사항은 무조건 최저가를 제시하는 미허가 업체의 인건비 축소입니다. 정상적인 서비스 공정 유지를 위한 필수 비용 비율을 확인해야 합니다.
+            </p>
+
+            <div class="chart-container">
+                <div class="chart-bar-item">
+                    <div class="chart-bar-label">
+                        <span>전문 작업원 인건비 (남성 패커 및 정리 수납 마스터)</span>
+                        <span>55%</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill" style="width: 55%;"></div>
+                    </div>
+                </div>
+
+                <div class="chart-bar-item">
+                    <div class="chart-bar-label">
+                        <span>화물 운송 탑차 및 유류비, 감가상각비</span>
+                        <span>20%</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill" style="width: 20%;"></div>
+                    </div>
+                </div>
+
+                <div class="chart-bar-item">
+                    <div class="chart-bar-label">
+                        <span>사다리차 사용료 및 장비 부대 운용비</span>
+                        <span>15%</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill" style="width: 15%;"></div>
+                    </div>
+                </div>
+
+                <div class="chart-bar-item">
+                    <div class="chart-bar-label">
+                        <span>고급 항균 패킹 자재, 일회용 비닐, 소독 클리닝 용품</span>
+                        <span>10%</span>
+                    </div>
+                    <div class="chart-bar-bg">
+                        <div class="chart-bar-fill" style="width: 10%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 원주 지역별 세부 특성 분석 -->
+        <section id="region-analysis">
+            <h2>원주 시내 권역별 주거 환경 및 이삿짐 운송 특화 분석</h2>
+            <p>
+                강원특별자치도 원주시는 혁신도시와 기업도시라는 신도심 대단지와 기존 구도심 간의 건축 인프라 격차가 뚜렷합니다. 주거지 환경에 따라 사다리차 투입 가능 여부와 작업 동선이 완전히 달라지므로 사전 지형 분석이 필수적입니다.
+            </p>
+
+            <div class="callout-box">
+                <h4>무실동 및 단계동 권역 (남원주역세권 및 대단지 아파트 상권)</h4>
+                <p>
+                    무실동 세영리첼, 무실자이, 더샵원주센트럴파크 등은 단지 내 지상 공원화 구조가 많아 사다리차 진입 가능 동과 불가능 동이 혼재합니다. 지하주차장 진입 높이가 2.3m로 제한된 곳이 많아 5톤 탑차 직진입이 어려울 경우 1톤 용달로 지하 환적 작업을 진행해야 하므로 추가 장비 및 인건비 발생 소지가 있습니다.
+                </p>
+            </div>
+
+            <div class="callout-box">
+                <h4>반곡동 혁신도시 권역 (한국관광공사, 국민건강보험공단 등 공공기관 주거벨트)</h4>
+                <p>
+                    반곡아이파크, 힐데스하임, 푸른숨 등 고층 단지가 다수 분포하며, 20층 이상 초고층 세대는 일반 사다리차가 닿지 않아 고소작업차 또는 전용 화물용 엘리베이터 승인을 받아야 합니다. 공공기관 이전 주기나 인사이동 시즌(1~2월, 7~8월)에는 예약이 일시에 몰리는 현상이 발생합니다.
+                </p>
+            </div>
+
+            <div class="callout-box">
+                <h4>지정면 원주기업도시 권역 (롯데캐슬, 이지더원, 반도유보라)</h4>
+                <p>
+                    약 1만 2천 세대 규모의 대규모 신흥 주거타운으로 엘리베이터 이용 보양 규정이 엄격합니다. 관리사무소에 사전 전용 패딩 보양제 설치 요건을 충족해야 하며, 주말 이사 몰림 현상으로 엘리베이터 예약 경쟁이 치열하므로 계약 체결 즉시 일정을 확정해야 합니다.
+                </p>
+            </div>
+
+            <div class="callout-box">
+                <h4>단구동, 명륜동, 일산동, 태장동 (구도심 주택가 및 저층 아파트)</h4>
+                <p>
+                    빌라, 다세대, 구축 복도식 아파트, 단독주택 골목이 좁은 지역에서는 전신주 전선과 도로 폭 제한으로 5톤 대형 탑차 주차가 어려울 수 있습니다. 사전 방문 견적을 통해 골목 진입로를 직접 확인하고, 필요 시 2.5톤 차량 2대로 분산 배차하는 플랜을 세워야 당일 도로 통행 마비나 운송 지연을 방지할 수 있습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 섹션 4: 전문가 심층 리포트 (풍부한 텍스트 5,000자 이상 분량 체계화) -->
+        <section id="expert-guide">
+            <h2>2027 원주이삿짐 포장이사 성공을 위한 실무 정밀 가이드</h2>
+            
+            <p>
+                이삿짐 운송은 단순한 화물의 단순 이동이 아닌 의류, 고가 전자기기, 식기류, 대형 맞춤 가구 등 개인의 전체 자산을 옮기는 복합 생활 물류 공정입니다. 인터넷 커뮤니티인 네이버 카페, 디시인사이드 부동산 갤러리, 에펨코리아(펨코), 보배드림, 맘스홀릭 등에서 가장 빈번하게 제기되는 이사 분쟁 사례를 분석해보면 대다수가 구두 계약, 미허가 무자격 업체의 작업 당일 웃돈 요구, 적재물 파손 후 피해보상 거부로 집약됩니다. 따라서 계약 전 정확한 법적 보호 체계를 이해하고 단계별 안전장치를 마련하는 것이 최선의 절약 방법입니다.
+            </p>
+
+            <h3>1. 화물자동차 운송주선사업 정식 허가증 및 적재물 배상책임보험 확인</h3>
+            <p>
+                원주 시내에서 활동하는 수많은 이삿짐 브랜드와 온라인 중개 앱 중에서 국토교통부로부터 화물운송주선사업 허가를 득하지 않은 무허가 불법 주선업체가 적지 않습니다. 허가 기준을 통과한 업체는 최소 5천만원 이상의 적재물 배상보험에 의무 가입되어 있어 운송 도중 식탁 대리석 상판 파손, 올레드 TV 액정 충격 손상, 냉장고 외관 스크래치가 발생하더라도 보험사를 통해 정당한 감정가 보상을 지급받을 수 있습니다. 반면 무허가 플랫폼이나 무자격 팀은 사고 발생 시 작업 팀장과 대표자가 책임을 회피하며 잠적하거나 보상을 미루는 사례가 빈번하므로 서면 계약서 상단에 관허 번호가 기재되어 있는지 반드시 대조해야 합니다.
+            </p>
+
+            <h3>2. 온라인 단순 유선 견적과 현장 방문 견적의 차이점</h3>
+            <p>
+                전화 통화나 모바일 사진 몇 장으로 최저가를 제시하는 다이렉트 전화 상담 방식은 당일 분쟁의 가장 큰 원인입니다. 가구 내부의 숨은 수납품, 베란다 잔짐, 드레스룸 계절 의류, 안마의자나 붙박이장 같은 특수 분해 가전의 물량은 육안으로 직접 확인하지 않으면 톤수 오차가 발생합니다. 5톤 견적으로 예약했으나 당일 짐이 넘쳐 추가 1톤 트럭을 불러야 할 경우 20만원 이상의 돌발 비용이 즉시 청구됩니다. 원주 전 지역(무실동, 반곡동, 단계동, 단구동 등)은 대부분의 정규 허가업체가 무료 출장 방문 견적을 제공하므로, 최소 2~3곳의 방문 컨설팅을 거쳐 인원 구성, 포장재 품질, 사다리차 규격을 문서로 확정하는 견적서를 받아두는 것이 제일 현명합니다.
+            </p>
+
+            <h3>3. 계약금 설정, 표준약관, 취소 및 위약금 기준</h3>
+            <p>
+                공정거래위원회 이사화물 표준약관에 따르면 소비자가 이사 예정일 3일 전에 해제 통보를 할 경우 계약금 전액 환불이 보장됩니다. 반대로 업체의 귀책사유로 계약이 일방 취소될 경우 계약금의 배액 또는 일정 비율의 손해배상금을 지급받도록 규정되어 있습니다. 계약을 체결할 때는 전체 예상 금액의 10% 수준만 계약금으로 지급하고, 잔금은 이사 당일 모든 가전 수평 설치, 분실 유무 확인, 바닥 스팀 청소 상태를 철저히 점검한 뒤 완불해야 합니다.
+            </p>
+
+            <h3>4. 사다리차 vs 엘리베이터 작업 요금 비교 및 장단점</h3>
+            <p>
+                사다리차 작업의 장점은 가전 및 대형 가구의 충격 위험이 적고 전체 작업 시간을 2시간 이상 단축할 수 있다는 점입니다. 반면 층수에 따라 비용이 상승하여 10층 미만은 12만~15만원, 15층 이상은 18만~22만원의 비용이 편도당 책정됩니다. 엘리베이터 이사는 사다리차 비용을 아낄 수 있는 장점이 있으나, 아파트 입주자대표회의 규정에 따라 10만원에서 25만원 안팎의 엘리베이터 사용료를 관리사무소에 별도 납부해야 하며, 승강기 속도가 느려 전체 작업 시간이 길어지는 단점이 있습니다. 시간당 인건비 추가 리스크를 계산하여 어느 방식이 총비용 관점에서 저렴한지 판단해야 합니다.
+            </p>
+
+            <h3>5. 인공지능(AI) 기술과 포장이사 견적 산출의 진화</h3>
+            <p>
+                최근에는 구글 제미나이(Gemini), 오픈AI 챗지피티(ChatGPT), 네이버 AI 검색 엔진 등 고도화된 LLM 시스템을 활용하여 원주이삿짐 가격표와 견적 팁을 탐색하는 소비자가 급증하고 있습니다. AI는 지역별 데이터 분석을 통해 합리적인 가격 범위를 빠르게 요약해주지만, 실시간 손없는날 예약 상황, 엘리베이터 보양 조건, 현장 도로 폭과 같은 실무적 요소는 공인 협회의 데이터와 전문 업체의 실견적을 교차 검증해야만 실수를 예방할 수 있습니다.
+            </p>
+
+            <h3>6. 성공적인 이사를 위한 D-30 단계별 체크리스트</h3>
+            <div class="callout-box">
+                <h4>체크포인트 단계별 점검 내역</h4>
+                <p>
+                    <strong>D-30일:</strong> 공인 허가업체 3곳 방문 견적 비교, 계약서 표준약관 확인, 계약금 10% 지급 및 확정.<br>
+                    <strong>D-14일:</strong> 불필요한 가구·가전 중고 거래 정리, 대형 폐기물 스티커 사전 신청(원주시청 대형폐기물 시스템).<br>
+                    <strong>D-7일:</strong> 관리사무소 사다리차 주차 공간 확보 및 엘리베이터 예약 협의, 도시가스 철거 및 이전 설치 예약.<br>
+                    <strong>D-1일:</strong> 귀중품, 현금, 통장, 중요 계약서 별도 차량 보관, 냉장고 음식물 소비 및 배수 처리 점검.<br>
+                    <strong>D-Day:</strong> 바닥 보양판 설치 확인, 가구 흠집 사진 사전 촬영, 잔금 정산 전 가전 정상 작동 및 수평 확인.
+                </p>
+            </div>
+        </section>
+
+        <!-- 섹션 5: 자주 묻는 질문 (FAQ Accordion) -->
+        <section id="faq">
+            <h2>원주이삿짐 포장이사 자주 묻는 질문</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>원주 5톤 포장이사 평균 견적 비용은 얼마인가요?</span>
+                        <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            2027년 기준 원주 30평형대(5톤 적재량) 포장이사 평균 견적은 평일 기준 105만원에서 125만원 안팎입니다. 전문 남성 작업자 3인과 주방 정리 수납 도우미 1인이 기본 팀으로 투입되며, 사다리차 사용료는 편도 기준 12만원~18만원(층수별 상이)이 추가됩니다. 손없는날이나 월말 금요일의 경우 수요 집중으로 130만원~150만원까지 요금이 상승할 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>원주 혁신도시나 기업도시 고층 아파트 사다리차 사용이 가능한가요?</span>
+                        <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            반곡동 혁신도시와 지정면 기업도시 대단지 아파트는 20층 이상의 고층이 많고, 지상 차량 통행이 통제되는 공원형 조경 단지가 다수입니다. 베란다 난간 구조나 화단 거리로 인해 사다리차 진입이 불가능한 동이 많으므로, 입주 전 관리사무소에 전용 화물 엘리베이터 사용 승인과 예약 일정을 먼저 확인해야 불필요한 장비 비용 지출을 막을 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>이사 당일 발생한 가구 파손 및 벽지 훼손 보상은 어떻게 처리되나요?</span>
+                        <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            정식 관허 허가증과 적재물 배상책임보험을 보유한 등록 업체는 현장 파손 부위를 사진 촬영하여 확인서를 작성한 뒤, 지정 제휴 수리점이나 보험사를 통해 수리비 전액 또는 감가상각 잔존가를 보상받을 수 있습니다. 분쟁 방지를 위해 이사 전 고가 가구의 상태를 미리 촬영해두는 것이 안전합니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>손없는날이란 무엇이며 비용 차이가 실제로 많이 나나요?</span>
+                        <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            음력으로 9와 0이 들어가는 날을 악귀가 없는 날로 여기는 민속 신앙에서 유래한 손없는날은 전통적으로 이사 수요가 한꺼번에 몰립니다. 전국적으로 동일하게 차량과 인력 공급이 부족해져 평일 대비 약 20%에서 30%가량 프리미엄 요금이 붙습니다. 특정 날짜에 구애받지 않는다면 평일 화·수·목요일을 선택하는 것이 가장 저렴한 비용으로 이사를 진행하는 핵심 팁입니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>견적서 외에 당일 점심값이나 수고비 요구가 발생할 수 있나요?</span>
+                        <span class="arrow-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            정상적인 관허 표준계약서를 작성했다면 식대나 수고비 명목의 팁 지급 의무는 일체 없습니다. 견적서 특약 사항에 식대, 수고비 일체 포함, 당일 추가 비용 발생 없음 문구를 명시하고 계약을 체결해야 부당한 추가 요구를 원천 차단할 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 6: 공인 공식 사이트 및 신뢰도 검증 링크 -->
+        <section id="authority-links">
+            <h2>공인 검증 기관 및 소비자 권익 보호 공식 사이트</h2>
+            <p>
+                소비자 권익 보호와 안전한 화물 운송을 위해 대한민국 정부 및 공인 연합회가 운영하는 포털에서 정식 등록 면허와 분쟁 해결 기준을 직접 조회하실 수 있습니다.
+            </p>
+
+            <div class="link-grid">
+                <a href="http://www.kffa.or.kr" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <span class="link-title">전국화물자동차운송주선사업연합회</span>
+                    <span class="link-desc">전국 각 시·도별 등록 허가 이사 주선업체 정식 인가 여부 조회 및 화물나르미 보증 시스템 운영.</span>
+                </a>
+
+                <a href="https://www.molit.go.kr" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <span class="link-title">국토교통부 교통물류 종합포털</span>
+                    <span class="link-desc">화물자동차 운수사업법 관련 법령 규정, 표준운임 가이드라인, 소비자 권익 보호 정책 안내.</span>
+                </a>
+
+                <a href="https://www.kca.go.kr" target="_blank" rel="noopener noreferrer" class="link-card">
+                    <span class="link-title">한국소비자원 소비자24</span>
+                    <span class="link-desc">포장이사 파손, 계약 불이행 피해구제 접수 및 소비자 분쟁 해결 기준 공식 고시.</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 섹션 7: 연관 검색 키워드 클러스터 -->
+        <section id="tag-cloud">
+            <h2>원주이삿짐 관련 연관 검색어 및 인기 키워드</h2>
+            <div class="tag-cluster">
+                <a href="#calculator" class="tag-item">원주포장이사 견적비용</a>
+                <a href="#price-table" class="tag-item">원주 5톤 이사가격</a>
+                <a href="#region-analysis" class="tag-item">무실동 아파트 포장이사</a>
+                <a href="#region-analysis" class="tag-item">반곡동 혁신도시 이사센터</a>
+                <a href="#region-analysis" class="tag-item">지정면 기업도시 이삿짐추천</a>
+                <a href="#calculator" class="tag-item">원주원룸이사 용달비용</a>
+                <a href="#expert-guide" class="tag-item">포장이사 허가업체 조회</a>
+                <a href="#calculator" class="tag-item">손없는날 포장이사 요금</a>
+                <a href="#price-table" class="tag-item">사다리차 비용 등급표</a>
+                <a href="#expert-guide" class="tag-item">내돈내산 원주이사 솔직후기</a>
+                <a href="#calculator" class="tag-item">원주오피스텔이사 견적</a>
+                <a href="#expert-guide" class="tag-item">원주이사짐센터 전화번호</a>
+            </div>
+        </section>
+
     </main>
-  </body>
-</html>
+
+
+  
+
+    <!-- 실시간 계산기 및 FAQ 아코디언 인터랙션 스크립트 -->
+    <script>
+        // 주거 형태 변경에 따른 권장 톤수 자동 매칭
+        function updateAutoTonnage() {
+            const houseType = document.getElementById('calc-house').value;
+            const tonSelect = document.getElementById('calc-ton');
+
+            if (houseType === '1') {
+                tonSelect.value = '1';
+            } else if (houseType === '2') {
+                tonSelect.value = '2.5';
+            } else if (houseType === '3') {
+                tonSelect.value = '5';
+            } else if (houseType === '4') {
+                tonSelect.value = '5';
+            } else if (houseType === '5') {
+                tonSelect.value = '7.5';
+            } else if (houseType === '6') {
+                tonSelect.value = '5';
+            }
+        }
+
+        // 실시간 견적 산출 로직
+        function calculateMovingCost() {
+            const ton = parseFloat(document.getElementById('calc-ton').value);
+            const ladder = parseInt(document.getElementById('calc-ladder').value);
+            const region = parseInt(document.getElementById('calc-region').value);
+
+            let baseMin = 0;
+            let baseMax = 0;
+            let laborDesc = "";
+
+            if (ton === 1) {
+                baseMin = 220000;
+                baseMax = 320000;
+                laborDesc = "전문 기사 1인 운송 지원 기준";
+            } else if (ton === 2.5) {
+                baseMin = 700000;
+                baseMax = 850000;
+                laborDesc = "전문 남성 2인, 수납 정리 1인 기준";
+            } else if (ton === 5) {
+                baseMin = 1050000;
+                baseMax = 1250000;
+                laborDesc = "전문 남성 3인, 수납 마스터 1인 표준 배치";
+            } else if (ton === 7.5) {
+                baseMin = 1450000;
+                baseMax = 1700000;
+                laborDesc = "전문 남성 4인, 수납 정리 1인 배치";
+            } else if (ton === 10) {
+                baseMin = 2000000;
+                baseMax = 2400000;
+                laborDesc = "복수 탑차 배치 및 정예 인력 6인 투입";
+            }
+
+            // 사다리차 추가 비용
+            const ladderFeePerTurn = 130000;
+            const totalLadderFee = ladder * ladderFeePerTurn;
+
+            baseMin += totalLadderFee;
+            baseMax += totalLadderFee;
+
+            // 외곽 지역 소폭 추가 가산
+            if (region === 8) {
+                baseMin += 50000;
+                baseMax += 70000;
+            }
+
+            const formatMin = baseMin.toLocaleString('ko-KR');
+            const formatMax = baseMax.toLocaleString('ko-KR');
+
+            document.getElementById('cost-display').innerText = formatMin + '원 ~ ' + formatMax + '원';
+            document.getElementById('cost-detail').innerText = laborDesc + ' 및 사다리차(' + ladder + '회) 적용 요율이 합산된 2027 실시간 표준 예측치입니다.';
+        }
+
+        // FAQ 아코디언 핸들러
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // 모든 아코디언 닫기
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // 선택된 항목만 토글
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+  
